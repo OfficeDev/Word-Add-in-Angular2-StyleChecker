@@ -1,0 +1,47 @@
+﻿<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. -->
+
+<!--
+    This file is "the page" of the single page application.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <base href="/">
+        <title>Style Checker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="app/app.component.css" rel="stylesheet" />
+
+        <!-- For the Office UI Fabric, go to http://aka.ms/office-ui-fabric to learn more. -->
+        <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.1.0/fabric.min.css">
+        <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.1.0/fabric.components.min.css">
+
+        <!-- Load the default implementation of the Fabric Contextual Menu component. This will be wrapped
+             by an Angular 2.0 component.
+        -->
+        <script type="text/javascript" src="app/shared/office-fabric-component-wrappers/ContextualMenu.js"></script>
+
+        <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.1.min.js"></script>
+
+        <!-- Load the Office JavaScript APIs -->
+        <script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.js" type="text/javascript"></script>
+
+        <!-- Load some Angular 2 dependencies. -->
+        <script src="node_modules/core-js/client/shim.min.js"></script>
+        <script src="node_modules/zone.js/dist/zone.js"></script>
+        <script src="node_modules/reflect-metadata/Reflect.js"></script>
+
+        <!-- Load and configure the module loader SystemJS. -->
+        <script src="node_modules/systemjs/dist/system.src.js"></script>
+        <script src="systemjs.config.js"></script>
+        <script>
+        System.import('app').catch(function(err){ console.error("error importing app: " + err);  });
+        </script>
+    </head>
+
+    <body class="ms-font-l">
+        <sc-app>Loading Style Checker ...</sc-app>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+/* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
+
+/*
+  This file provides the styles for navigation header.
+*/
+ 
+.ms-navigation__header {
+  overflow: hidden;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: #DEECF9;
+  height: 40px; }
+ 

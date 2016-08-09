@@ -1,0 +1,24 @@
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file. -->
+
+<!--
+    This file provides the HTML for the find-and-replace view.
+-->
+
+<sc-navigation-header></sc-navigation-header>
+
+<div class="ms-navigation__content">
+    <div class="ms-font-xl ms-navigation__content__title">Search and Replace</div>
+    <label class="ms-Label">Find</label>
+
+    <!-- Assign handlers to the textEntered event for each of the text boxes. -->
+    <of-textfield [innerlabel]="'Enter search string'" [id]="'searchString'" (textEntered)='onSearchTextEntered($event)'></of-textfield>
+    <label class="ms-Label">Replace With</label>
+    <of-textfield [innerlabel]="'Enter replace string'" [id]="'replaceString'" (textEntered)='onReplaceTextEntered($event)'></of-textfield>
+    <label class="ms-Label" >Skip Paragraphs</label>
+    <of-textfield [innerlabel]="'Enter paragraph numbers'" [id]="'excludedParagraphs'" (textEntered)='onParagraphNumeralEntered($event)'></of-textfield>
+</div>
+<div class="ms-navigation__content">
+    <sc-button [buttonlabel]="'Replace'" (click)='replace()'></sc-button>
+</div>
+
+<sc-brand-footer></sc-brand-footer>

@@ -1,0 +1,35 @@
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. -->
+
+ <!--
+     This file creates the HTML of the settings view.
+ -->
+
+<sc-navigation-header></sc-navigation-header>
+
+<section class="ms-settings__content ms-font-m ms-fontColor-neutralPrimary">
+        <div class="ms-font-xxl ms-settings__content__title">Settings</div>
+        <div class="ms-font-xl ms-settings__content__subtitle">Instructions</div>
+        <div class="ms-ChoiceFieldGroup">
+            <div class="ms-ChoiceField">
+                <input id="radio1-a" class="ms-ChoiceField-input" type="radio" name="radio1" #always checked="checked"
+                 (click)='onRadioButtonSelected("StyleCheckerAddinShowInstructions", "Always")'>
+                <label for="radio1-a" class="ms-ChoiceField-field">
+                    <span class="ms-Label">Show the instructions every time the add-in opens</span>
+                </label>
+            </div>
+            <div class="ms-ChoiceField">
+                <input id="radio1-b" class="ms-ChoiceField-input" type="radio" name="radio1" #onlyFirstTime
+                (click)='onRadioButtonSelected("StyleCheckerAddinShowInstructions", "OnlyFirstTime")'>
+                <label for="radio1-b" class="ms-ChoiceField-field">
+                    <span class="ms-Label">Show the instructions only the first time the add-in opens</span>
+                </label>
+            </div>
+        </div>
+        <sc-button [buttonlabel]="'Show Instructions'" [routerLink]="['/instruction-steps']"></sc-button>
+
+        <div class="ms-font-xl ms-settings__content__subtitle">About this Add-in</div>
+        <p class="ms-font-m ms-settings__content__text">Style Checker v1.0.0.0<br />&copy; 2016 Microsoft Co.</p>
+
+    </section>
+
+<sc-brand-footer></sc-brand-footer>

@@ -1,0 +1,36 @@
+/* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
+
+/*
+  This file provides the styles for the menu hosting button. These make minor overrides of the 
+  standard Fabric classes with the same names. 
+*/
+
+.ms-Button.ms-Button--command {
+  transition: background ease 0.1s, color ease 0.1s;
+  padding-top: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 40px; }
+
+.ms-Button.ms-Button--command:active, .ms-Button.ms-Button--command:hover {
+  background: #eff6fc;
+  cursor: pointer; }
+
+.ms-Button.ms-Button--command:active {
+  background: #eff6fc;
+  -webkit-transform: scale3d(0.98, 0.98, 1);
+          transform: scale3d(0.98, 0.98, 1); }
+
+.ms-Button.ms-Button--command--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed; }
+
+.ms-Button.ms-Button--command--disabled:active, .ms-Button.ms-Button--command--disabled:hover {
+  background: transparent; }
+  
+.ms-Button.ms-Button--command--disabled:active {
+  -webkit-transform: none;
+          transform: none; }
+
+

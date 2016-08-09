@@ -1,0 +1,41 @@
+/* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
+
+/*
+  This file provides the styles for the settngs view.
+*/
+
+.ms-settings {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  height: 100%; }
+
+.ms-settings__content {
+  -webkit-flex: 1 0 0px;
+          flex: 1 0 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 0px; }
+
+.ms-settings__content__title {
+  padding-top: 15px;
+  padding-bottom: 10px; }
+
+.ms-settings__content__subtitle {
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+.ms-settings__content__text {
+  padding-top: 10px; }
+
+.ms-settings__content--link {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  color: #0078d7; }
+  
+.ms-settings__content a {
+  color: #0078d7;
+  text-decoration: none; }

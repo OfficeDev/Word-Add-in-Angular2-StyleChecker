@@ -1,0 +1,32 @@
+/* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
+
+/*
+  This file provides the styles for the find-and-replace view.
+*/
+
+.ms-navigation {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  height: 100%; }
+
+.ms-navigation__content {
+  -webkit-flex: 1 0 0px;
+          flex: 1 0 0px;
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 0px; }
+
+.ms-navigation__content p {
+  padding-top: 10px; }
+
+.ms-navigation__content ul {
+  list-style: none; }
+  
+.ms-navigation__content__title, .ms-navigation__content__subtitle, .ms-navigation__content__text {
+  margin-bottom: 20px; }
+

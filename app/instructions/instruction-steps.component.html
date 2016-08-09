@@ -1,0 +1,36 @@
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file. -->
+
+<!--
+    This file provides the HTML for the instructions view.
+-->
+
+<main class="ms-firstrun-instructionstep ms-font-l" id="main">
+    <section class="ms-firstrun-instructionstep__header">
+        <div class="ms-fontSize-xl ms-fontColor-themePrimary ">{{title}}</div>
+        <div class="ms-font-m ms-fontColor-themePrimary ms-fontWeight-light">
+            {{addin_description}}
+        </div>
+        <div class="ms-firstrun-instructionstep__header--image" ></div>
+    </section>
+    <div class="ms-firstrun-instructionstep__welcome-body">
+        <p class="ms-font-xs ms-firstrun-instructionstep__welcome-intro">{{steps_intro}}</p>
+        
+        <ul class="ms-List ms-firstrun-instructionstep__list">
+            <li class="ms-ListItem" *ngFor='let step of steps'>
+                <span class="ms-ListItem-primaryText">{{step.step_number}}</span>
+                <span class="ms-ListItem-secondaryText">
+                    <span class="ms-fontColor-themePrimary ">
+                        {{step.content}}                            
+                    </span>
+                </span>
+                <div class="clearfix"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <p align="center">
+            <!--<sc-button [buttonlabel]="'Get Started'" [routerLink]="['/find-and-replace', {instructionsshown: 1}]"></sc-button>      -->
+            <sc-button [buttonlabel]="'Get Started'" [routerLink]="['/find-and-replace']"></sc-button>             
+        </p>
+    </div>
+</main>

@@ -1,0 +1,22 @@
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. -->
+
+<!--
+    This file creates the HTML of the contextual menu and assigns click event
+    handlers to its items.
+-->
+
+<ul class="ms-ContextualMenu" #myDropdown id="myDropdown">
+    <li class="ms-ContextualMenu-item">
+        <a class="ms-ContextualMenu-link" (click)='insertSampleContent()'>Insert sample content</a></li>
+    <li class="ms-ContextualMenu-item">
+        <a class="ms-ContextualMenu-link" [routerLink]="['/find-and-replace']">
+            <span class="ms-Icon ms-Icon--search"></span> Find and Replace
+        </a>
+    </li>       
+    <li class="ms-ContextualMenu-item ">
+        <a class="ms-ContextualMenu-link" [routerLink]="['/settings']">
+            <span class="ms-Icon ms-Icon--gear"></span> Settings
+        </a>
+    </li>
+</ul>
+
