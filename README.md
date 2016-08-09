@@ -108,39 +108,37 @@ All of the code that uses the Office and Word JavaScript APIs is in the file wor
 
 The code first gets a collection of all the ranges that match the user's search term. It then gets a collection of all the paragraph ranges in the document. 
 
-```let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load();```
-
-```let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();```
+    let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load();    
+    let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();
 
 After the collections are loaded with a call of `context.sync()`, the code creates an array of the paragraph ranges that the user excludes from the replacement. (Note that `excludedParagraphs` is a parameter passed to the method.)
 
-```let excludedRanges: Array<Word.Range> = [];```
-
-```excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));```
+    let excludedRanges: Array<Word.Range> = [];    
+    excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));
 
 
 The code then loops through the iterables to determine which search results are inside excluded paragraphs and which are not. For each search result, this fact is recorded in a `IReplacementCandidate` object. The `compareLocationWith()` method returns "Inside" if the search result is inside the excluded paragraph. It returns "Equal" if the search result is a paragraph by itself and has been excluded. 
 
 
-```for (let i = 0; i < foundItems.items.length; i++) {```
-```    for (let j = 0; j < excludedRanges.length; j++) {```
-```        replacementCandidates.push({```
-```            range: foundItems.items[i],```
-```            locationRelation: foundItems.items[i].compareLocationWith(excludedRanges[j])```
-```        });```
-```    }```
-}```
+    for (let i = 0; i < foundItems.items.length; i++) {
+        for (let j = 0; j < excludedRanges.length; j++) {
+            replacementCandidates.push({
+                range: foundItems.items[i],
+                locationRelation: foundItems.items[i].compareLocationWith(excludedRanges[j])
+            });
+        }
+    }
 The replacement candidate objects are loaded with a call to `context.sync()` and then the code iterates through them, replacing the search string with the replace string only in the paragraphs which are not in an excluded paragraph.
 
-```replacementCandidates.forEach(function (item) {```
-```    switch (item.locationRelation.value) {```
-```        case "Inside":```
-```        case "Equal":```
-```            break;```
-```        default:```
-```            item.range.insertText(replaceString, 'Replace');```
-```    }```
-});```
+    replacementCandidates.forEach(function (item) {
+        switch (item.locationRelation.value) {
+            case "Inside":
+            case "Equal":
+                break;
+            default:
+                item.range.insertText(replaceString, 'Replace');
+        }
+    });
 
 See the `replaceDocumentContent` method of the same file to see how the Word `insertText` and `insertParagraph` methods are used to insert sample content into the document.
 
