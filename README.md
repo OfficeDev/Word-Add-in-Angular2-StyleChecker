@@ -1,0 +1,2 @@
+# Word-Add-in-Angular2-StyleChecker
+Office Word web add-in that uses the `LocationRelation` and `compareLocationWith` APIs of the Word JavaScript APIs to perform a search and replace that skips some ranges based on their location relative to other ranges. The add-in is built on the Angular 2.0 RC.4 framework, and it also shows how to use the design samples from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code). 
