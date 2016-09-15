@@ -27,11 +27,11 @@ export class FabricContextualMenuWrapperComponent implements AfterViewInit {
 
     insertSampleContent() {
         this.wordDocument.replaceDocumentContent([
-            "Travel in the Czech Republic",
-            "If you haven't considered the Czech Republic for your next vacation, it is time that you did. As Elliot McFadden puts it:",
-            "\t\"The Czech Republic combines the best of Eastern and Western Europe.\"",
-            "Europe's destructive wars of the 20th Century largely bypassed the lands that now make up the Czech Republic, so when you visit a castle in the Czech Republic, it is not the ruin of a castle but an actual castle, probably still inhabited or in use by the government.",
-            "The most famous Czech was the renowned writer Franz Kafka. Don't miss his pink bricked high school in the center of the Czech Republic's capital, Prague."
+            "Office Add-ins",
+            "An OAI runs in an Office application and can interact with data in a document or mail item. As one observer said:",
+            "\t\"These new OAIs are the cat's meow.\"",
+            "An OAI is a web app that you can host anywhere. It runs in an Office application. A manifest.xml file specifies where the web app is located and how it should appear.",
+            "You can find an OAI sample or two (or many) in the OfficeDev organization on GitHub."
         ]);
     }
 

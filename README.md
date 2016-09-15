@@ -86,11 +86,11 @@ Now you need to let Microsoft Word know where to find the add-in.
 
 1. When you are finished with the instructions, click **Get Started**.
 2. When the **Find and Replace** page opens, there is a command bar at the top with a menu button. Click the button to open the menu.
-3. Select **Insert sample content**. Click the button again to close the menu. The document now has unformatted text about the Czech Republic because the demonstration scenario is a travel magazine that has decided to use the new name of the country, "Czechia".
-4. In the **Find** box enter "the Czech Republic". 
-5. In the **Replace** box enter "Czechia".
+3. Select **Insert sample content**. Click the button again to close the menu. The document now has unformatted text about Office Add-ins, including a fictional quotation. The writer has used an "OAI" to abbreviate "Office Add-in" and so does the anonymous quotation.
+4. In the **Find** box enter "OAI". 
+5. In the **Replace** box enter "Office Add-in".
 6. The change should ***not*** be made in the paragraph that is a direct quotation, so enter the number **2** in the **Skip Paragraphs** box. This is the zero-based number of the paragraph.
-7. Select **Replace**. Every instance of "the Czech Republic" except the one in the skipped paragraph is changed.
+7. Select **Replace**. Every instance of "OAI" except the one in the skipped paragraph is changed.
 8. Experiment with other search and replace strings.
 
  > Note: This sample version of the add-in accepts only one number in the **Skip Paragraphs** box. 
@@ -108,39 +108,40 @@ All of the code that uses the Office and Word JavaScript APIs is in the file wor
 
 The code first gets a collection of all the ranges that match the user's search term. It then gets a collection of all the paragraph ranges in the document. 
 
-    let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load();    
-    let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();
+```let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load();```
+```let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();```
 
 After the collections are loaded with a call of `context.sync()`, the code creates an array of the paragraph ranges that the user excludes from the replacement. (Note that `excludedParagraphs` is a parameter passed to the method.)
 
-    let excludedRanges: Array<Word.Range> = [];    
-    excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));
-
+```let excludedRanges: Array<Word.Range> = [];```
+```excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));```
 
 The code then loops through the iterables to determine which search results are inside excluded paragraphs and which are not. For each search result, this fact is recorded in a `IReplacementCandidate` object. The `compareLocationWith()` method returns "Inside" if the search result is inside the excluded paragraph. It returns "Equal" if the search result is a paragraph by itself and has been excluded. 
 
-
-    for (let i = 0; i < foundItems.items.length; i++) {
-        for (let j = 0; j < excludedRanges.length; j++) {
-            replacementCandidates.push({
-                range: foundItems.items[i],
-                locationRelation: foundItems.items[i].compareLocationWith(excludedRanges[j])
-            });
-        }
+```
+for (let i = 0; i < foundItems.items.length; i++) {
+    for (let j = 0; j < excludedRanges.length; j++) {
+        replacementCandidates.push({
+            range: foundItems.items[i],
+            locationRelation: foundItems.items[i].compareLocationWith(excludedRanges[j])
+        });
     }
+}
+```
 The replacement candidate objects are loaded with a call to `context.sync()` and then the code iterates through them, replacing the search string with the replace string only in the paragraphs which are not in an excluded paragraph.
 
-    replacementCandidates.forEach(function (item) {
-        switch (item.locationRelation.value) {
-            case "Inside":
-            case "Equal":
-                break;
-            default:
-                item.range.insertText(replaceString, 'Replace');
-        }
-    });
-
-See the `replaceDocumentContent` method of the same file to see how the Word `insertText` and `insertParagraph` methods are used to insert sample content into the document.
+```
+replacementCandidates.forEach(function (item) {
+    switch (item.locationRelation.value) {
+        case "Inside":
+        case "Equal":
+            break;
+        default:
+            item.range.insertText(replaceString, 'Replace');
+    }
+});
+```
+See the `replaceDocumentContent` method of the same file to see how the Word `insertText` and `nsertParagraph` methods are used to insert sample content into the document.
 
 See the rest of the code files to see how the design patterns from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code) have been integrated into the Angular 2.0 framework.
 
