@@ -31,11 +31,11 @@ export class SettingsComponent {
   constructor(private settingsStorage: SettingsStorageService) {}
 
   ngAfterViewInit() {
-    let currentInstructionSdetting: string = this.settingsStorage.fetch("StyleCheckerAddinShowInstructions");
+    let currentInstructionSetting: string = this.settingsStorage.fetch("StyleCheckerAddinShowInstructions");
     
     // Ensure that when the page loads, the radio button selection matches
     // the user's current setting.
-    if (currentInstructionSdetting === "OnlyFirstTime") { 
+    if (currentInstructionSetting === "OnlyFirstTime") { 
       this.alwaysRadioButton.nativeElement.removeAttribute("checked");
       this.onlyFirstTimeRadioButton.nativeElement.setAttribute("checked", "checked");
     }

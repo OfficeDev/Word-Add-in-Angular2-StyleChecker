@@ -18,9 +18,7 @@ import { WordDocumentService } from '../../services/word-document/word.document.
     directives: [ROUTER_DIRECTIVES],
     styleUrls:['app/shared/office-fabric-component-wrappers/fabric.contextual.menu.wrapper.component.css']
 })
-export class FabricContextualMenuWrapperComponent implements AfterViewInit {
-
-  //  @ViewChild('myDropdown') menu: ElementRef;
+export class FabricContextualMenuWrapperComponent {//implements AfterViewInit {
     
     constructor(private wordDocument: WordDocumentService,
                 private router: Router){ }
@@ -33,15 +31,5 @@ export class FabricContextualMenuWrapperComponent implements AfterViewInit {
             "An OAI is a web app that you can host anywhere. It runs in an Office application. A manifest.xml file specifies where the web app is located and how it should appear.",
             "You can find an OAI sample or two (or many) in the OfficeDev organization on GitHub."
         ]);
-    }
-
-     // After the contexual menu has fully rendered, create a Fabric ContextualMenu object for it.
-     // (Future enhancement: Use Angular 2 ElementRef, instead of jQuery, to reference the elment.)
-     ngAfterViewInit() {
-        // this.menu.nativeElement. .ContextualMenu();
-
-        if ($.fn.ContextualMenu) {
-                $('.ms-ContextualMenu').ContextualMenu();
-            }
     }
 }
