@@ -6,7 +6,7 @@
 
 ///<reference path="../../../typings/index.d.ts"/>
 
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 // The WordDocumentService provides methods for manipulating the document.
