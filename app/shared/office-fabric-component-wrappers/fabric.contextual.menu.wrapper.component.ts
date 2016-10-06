@@ -6,7 +6,7 @@
 
 ///<reference path="../../../typings/index.d.ts"/>
 
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 // The WordDocumentService provides methods for manipulating the document.
@@ -21,7 +21,8 @@ import { WordDocumentService } from '../../services/word-document/word.document.
 export class FabricContextualMenuWrapperComponent {
     
     constructor(private wordDocument: WordDocumentService,
-                private router: Router){ }
+                private router: Router,
+                private element: ElementRef){ }
 
     insertSampleContent() {
         this.wordDocument.replaceDocumentContent([
@@ -31,5 +32,13 @@ export class FabricContextualMenuWrapperComponent {
             "An OAI is a web app that you can host anywhere. It runs in an Office application. A manifest.xml file specifies where the web app is located and how it should appear.",
             "You can find an OAI sample or two (or many) in the OfficeDev organization on GitHub."
         ]);
+
+        this.closeMenu();
+    }
+
+    closeMenu() {
+        let menuElement: HTMLElement = this.element.nativeElement // = this <of-contextual-menu>
+                                                   .children[0];  // = <ul class="ms-ContextualMenu" ... >
+        menuElement.classList.remove("is-open");
     }
 }
