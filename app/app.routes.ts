@@ -11,11 +11,7 @@ import { SettingsComponent } from './settings/settings.component';
 
 // Gets the local storage setting that specifies when to skip instructions
 function fetchInstructionSetting() : string {
-
-    // Use the application's domain/port on all storage keys to avoid name clashes.
-    let keyStem: string = location.hostname + (location.port ? ':' + location.port : '');
-
-    return window.localStorage.getItem(keyStem + "StyleCheckerAddinShowInstructions");
+    return window.localStorage.getItem("StyleCheckerAddinShowInstructions");
 }
 
 function setRoutesArray(): any {

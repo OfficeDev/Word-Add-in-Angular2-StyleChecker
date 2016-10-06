@@ -7,30 +7,22 @@
 /// <reference path="../../../typings/index.d.ts" />
 
 import { Injectable } from '@angular/core';
-// import { IReplacementCandidate } from './IReplacementCandidate';
 
 
 @Injectable()
 export class SettingsStorageService { 
-
-    private keyStem: string; 
     
-    constructor() {
-
-        // Use the application's domain/port on all storage keys to avoid name clashes.
-        this.keyStem = location.hostname + (location.port ? ':' + location.port : '');
-    }
+    constructor() {}
 
     store(specificKey: string, value: string) {
-        window.localStorage.setItem(this.keyStem + specificKey, value);
+        window.localStorage.setItem(specificKey, value);
     }
 
     fetch(specificKey: string) : string {
-        return window.localStorage.getItem(this.keyStem + specificKey);
+        return window.localStorage.getItem(specificKey);
     }
 
     remove(specificKey: string) {
-        window.localStorage.removeItem(this.keyStem + specificKey);
+        window.localStorage.removeItem(specificKey);
     }
-
 }

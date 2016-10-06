@@ -33,7 +33,7 @@ export class SettingsComponent {
   ngAfterViewInit() {
     let currentInstructionSetting: string = this.settingsStorage.fetch("StyleCheckerAddinShowInstructions");
     
-    // Ensure that when the page loads, the radio button selection matches
+    // Ensure that when the settings view loads, the radio button selection matches
     // the user's current setting.
     if (currentInstructionSetting === "OnlyFirstTime") { 
       this.alwaysRadioButton.nativeElement.removeAttribute("checked");
