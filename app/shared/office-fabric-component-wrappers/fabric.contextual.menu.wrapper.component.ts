@@ -18,7 +18,7 @@ import { WordDocumentService } from '../../services/word-document/word.document.
     directives: [ROUTER_DIRECTIVES],
     styleUrls:['app/shared/office-fabric-component-wrappers/fabric.contextual.menu.wrapper.component.css']
 })
-export class FabricContextualMenuWrapperComponent {//implements AfterViewInit {
+export class FabricContextualMenuWrapperComponent {
     
     constructor(private wordDocument: WordDocumentService,
                 private router: Router){ }
