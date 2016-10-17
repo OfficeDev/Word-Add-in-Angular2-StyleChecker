@@ -14,21 +14,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 */
 /// <reference path="../typings/index.d.ts" />
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var router_1 = require('@angular/router');
-// The WordDocumentService provides methods for manipulating the document.
-var word_document_service_1 = require('./services/word-document/word.document.service');
-// The SettingsStorageService provides CRUD operations on application settings.
-var settings_storage_service_1 = require('./services/settings-storage/settings.storage.service');
 var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'sc-app',
-            template: "\n    <div>        \n        <div class='container'>\n            <router-outlet></router-outlet>\n        </div>\n     </div>\n     ",
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [word_document_service_1.WordDocumentService, settings_storage_service_1.SettingsStorageService, http_1.HTTP_PROVIDERS]
+            template: "\n    <div>        \n        <div class='container'>\n            <router-outlet></router-outlet>\n        </div>\n     </div>\n     "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

@@ -7,7 +7,7 @@
 ///<reference path="../../../typings/index.d.ts"/>
 
 import { Component, ElementRef } from '@angular/core';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { Router } from '@angular/router';
 
 // The WordDocumentService provides methods for manipulating the document.
 import { WordDocumentService } from '../../services/word-document/word.document.service';
@@ -15,7 +15,6 @@ import { WordDocumentService } from '../../services/word-document/word.document.
 @Component({
     selector: 'of-contextual-menu',
     templateUrl: 'app/shared/office-fabric-component-wrappers/fabric.contextual.menu.wrapper.component.html',
-    directives: [ROUTER_DIRECTIVES],
     styleUrls:['app/shared/office-fabric-component-wrappers/fabric.contextual.menu.wrapper.component.css']
 })
 export class FabricContextualMenuWrapperComponent {

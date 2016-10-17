@@ -17,7 +17,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 */
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var button_component_1 = require('../shared/button/button.component');
 var InstructionStepsComponent = (function () {
     function InstructionStepsComponent(router) {
         this.router = router;
@@ -32,8 +31,7 @@ var InstructionStepsComponent = (function () {
     InstructionStepsComponent = __decorate([
         core_1.Component({
             templateUrl: 'app/instructions/instruction-steps.component.html',
-            directives: [button_component_1.ButtonComponent, router_1.ROUTER_DIRECTIVES],
-            styleUrls: ['app/instructions/instruction-steps.component.css'],
+            styleUrls: ['app/instructions/instruction-steps.component.css']
         }), 
         __metadata('design:paramtypes', [router_1.Router])
     ], InstructionStepsComponent);

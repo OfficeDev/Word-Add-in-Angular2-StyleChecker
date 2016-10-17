@@ -16,9 +16,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   repo:  https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code
 */
 var core_1 = require('@angular/core');
-// Import the child components that will be in the header.
-var contextual_menu_button_component_1 = require('../contextual-menu-button/contextual.menu.button.component');
-var fabric_contextual_menu_wrapper_component_1 = require('../office-fabric-component-wrappers/fabric.contextual.menu.wrapper.component');
 var NavigationHeaderComponent = (function () {
     function NavigationHeaderComponent() {
     }
@@ -27,7 +24,6 @@ var NavigationHeaderComponent = (function () {
             selector: 'sc-navigation-header',
             templateUrl: 'app/shared/navigation-header/navigation.header.component.html',
             styleUrls: ['app/shared/navigation-header/navigation.header.component.css'],
-            directives: [contextual_menu_button_component_1.ContextualMenuButtonComponent, fabric_contextual_menu_wrapper_component_1.FabricContextualMenuWrapperComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], NavigationHeaderComponent);

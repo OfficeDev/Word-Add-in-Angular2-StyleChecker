@@ -6,7 +6,7 @@
 */
 
 import { Component, }  from '@angular/core';
-import { Router, ActivatedRoute, ROUTER_DIRECTIVES } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { FabricTextFieldWrapperComponent } from '../shared/office-fabric-component-wrappers/fabric.textfield.wrapper.component';
 import { ButtonComponent } from '../shared/button/button.component';
@@ -23,7 +23,6 @@ import { SettingsStorageService } from '../services/settings-storage/settings.st
 @Component({
     templateUrl: 'app/find-and-replace/find-and-replace.component.html',
     styleUrls: ['app/find-and-replace/find-and-replace.component.css'],
-    directives: [NavigationHeaderComponent, FabricTextFieldWrapperComponent, ButtonComponent, BrandFooterComponent]
 })
 export class FindAndReplaceComponent {
 
@@ -34,8 +33,7 @@ export class FindAndReplaceComponent {
 
     constructor(private wordDocument: WordDocumentService,
                 private settingsStorage: SettingsStorageService,
-                private router: Router,
-                private route: ActivatedRoute) {}
+                private router: Router) {}
 
     // Handle the event of a user entering text in the search box.
     onSearchTextEntered(message: string): void {

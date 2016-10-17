@@ -17,6 +17,5 @@ import { FabricContextualMenuWrapperComponent } from '../office-fabric-component
     selector: 'sc-navigation-header',
     templateUrl: 'app/shared/navigation-header/navigation.header.component.html',
     styleUrls: ['app/shared/navigation-header/navigation.header.component.css'],
-    directives: [ContextualMenuButtonComponent, FabricContextualMenuWrapperComponent]
 })
 export class NavigationHeaderComponent {}

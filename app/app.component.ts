@@ -6,15 +6,7 @@
 
 /// <reference path="../typings/index.d.ts" />
 
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { HTTP_PROVIDERS } from '@angular/http';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-
-// The WordDocumentService provides methods for manipulating the document.
-import { WordDocumentService } from './services/word-document/word.document.service';
-
-// The SettingsStorageService provides CRUD operations on application settings.
-import { SettingsStorageService } from './services/settings-storage/settings.storage.service';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'sc-app',
@@ -24,9 +16,6 @@ import { SettingsStorageService } from './services/settings-storage/settings.sto
             <router-outlet></router-outlet>
         </div>
      </div>
-     `,
-    directives: [ROUTER_DIRECTIVES],
-    providers: [WordDocumentService, SettingsStorageService, HTTP_PROVIDERS]
+     `
 })
-
-export class AppComponent {}
+export class AppComponent { }

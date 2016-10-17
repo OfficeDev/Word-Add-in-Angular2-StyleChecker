@@ -48,6 +48,11 @@ var TextField = (function () {
             this._textField.addEventListener("focus", function (event) {
                 _this._textFieldLabel.style.display = "none";
             });
+            // Modify default Fabric code to ensure that the text box gets focus when the 
+            // the placeholder text itself is clicked.
+            this._textFieldLabel.addEventListener("click", function (event) {
+                _this._textField.focus();
+            });
             this._textField.addEventListener("blur", function (event) {
                 // Show only if no value in the text field
                 if (_this._textField.value.length === 0) {

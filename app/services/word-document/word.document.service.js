@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /*
-  This file defines a service that provides methods for manipulating the Word document.
+  This file defines a service for manipulating the Word document.
 */
 /// <reference path="../../../typings/index.d.ts" />
 var core_1 = require('@angular/core');

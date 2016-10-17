@@ -15,20 +15,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 */
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var fabric_textfield_wrapper_component_1 = require('../shared/office-fabric-component-wrappers/fabric.textfield.wrapper.component');
-var button_component_1 = require('../shared/button/button.component');
-var navigation_header_component_1 = require('../shared/navigation-header/navigation.header.component');
-var brand_footer_component_1 = require('../shared/brand-footer/brand.footer.component');
 // The WordDocumentService provides methods for manipulating the document.
 var word_document_service_1 = require('../services/word-document/word.document.service');
 // The SettingsStorageService provides CRUD operations on application settings..
 var settings_storage_service_1 = require('../services/settings-storage/settings.storage.service');
 var FindAndReplaceComponent = (function () {
-    function FindAndReplaceComponent(wordDocument, settingsStorage, router, route) {
+    function FindAndReplaceComponent(wordDocument, settingsStorage, router) {
         this.wordDocument = wordDocument;
         this.settingsStorage = settingsStorage;
         this.router = router;
-        this.route = route;
     }
     // Handle the event of a user entering text in the search box.
     FindAndReplaceComponent.prototype.onSearchTextEntered = function (message) {
@@ -49,9 +44,8 @@ var FindAndReplaceComponent = (function () {
         core_1.Component({
             templateUrl: 'app/find-and-replace/find-and-replace.component.html',
             styleUrls: ['app/find-and-replace/find-and-replace.component.css'],
-            directives: [navigation_header_component_1.NavigationHeaderComponent, fabric_textfield_wrapper_component_1.FabricTextFieldWrapperComponent, button_component_1.ButtonComponent, brand_footer_component_1.BrandFooterComponent]
         }), 
-        __metadata('design:paramtypes', [word_document_service_1.WordDocumentService, settings_storage_service_1.SettingsStorageService, router_1.Router, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [word_document_service_1.WordDocumentService, settings_storage_service_1.SettingsStorageService, router_1.Router])
     ], FindAndReplaceComponent);
     return FindAndReplaceComponent;
 }());

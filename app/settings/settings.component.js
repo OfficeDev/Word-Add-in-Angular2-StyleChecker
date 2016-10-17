@@ -16,10 +16,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   repo:  https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code
 */
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var navigation_header_component_1 = require('../shared/navigation-header/navigation.header.component');
-var button_component_1 = require('../shared/button/button.component');
-var brand_footer_component_1 = require('../shared/brand-footer/brand.footer.component');
 // The SettingsStorageService provides CRUD operations on application settings.
 var settings_storage_service_1 = require('../services/settings-storage/settings.storage.service');
 var SettingsComponent = (function () {
@@ -27,10 +23,10 @@ var SettingsComponent = (function () {
         this.settingsStorage = settingsStorage;
     }
     SettingsComponent.prototype.ngAfterViewInit = function () {
-        var currentInstructionSdetting = this.settingsStorage.fetch("StyleCheckerAddinShowInstructions");
-        // Ensure that when the page loads, the radio button selection matches
+        var currentInstructionSetting = this.settingsStorage.fetch("StyleCheckerAddinShowInstructions");
+        // Ensure that when the settings view loads, the radio button selection matches
         // the user's current setting.
-        if (currentInstructionSdetting === "OnlyFirstTime") {
+        if (currentInstructionSetting === "OnlyFirstTime") {
             this.alwaysRadioButton.nativeElement.removeAttribute("checked");
             this.onlyFirstTimeRadioButton.nativeElement.setAttribute("checked", "checked");
         }
@@ -49,8 +45,7 @@ var SettingsComponent = (function () {
     SettingsComponent = __decorate([
         core_1.Component({
             templateUrl: 'app/settings/settings.component.html',
-            directives: [navigation_header_component_1.NavigationHeaderComponent, button_component_1.ButtonComponent, brand_footer_component_1.BrandFooterComponent, router_1.ROUTER_DIRECTIVES],
-            styleUrls: ['app/settings/settings.component.css'],
+            styleUrls: ['app/settings/settings.component.css']
         }), 
         __metadata('design:paramtypes', [settings_storage_service_1.SettingsStorageService])
     ], SettingsComponent);

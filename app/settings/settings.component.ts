@@ -8,7 +8,7 @@
 */
 
 import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { NavigationHeaderComponent} from '../shared/navigation-header/navigation.header.component';
 import { ButtonComponent } from '../shared/button/button.component';
@@ -19,8 +19,7 @@ import { SettingsStorageService } from '../services/settings-storage/settings.st
 
 @Component({
     templateUrl: 'app/settings/settings.component.html',
-    directives: [NavigationHeaderComponent, ButtonComponent, BrandFooterComponent, ROUTER_DIRECTIVES],
-    styleUrls: ['app/settings/settings.component.css'],
+    styleUrls: ['app/settings/settings.component.css']
 })
 export class SettingsComponent {
    

@@ -8,16 +8,14 @@
 */
 
 import { Component } from '@angular/core';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { ButtonComponent } from '../shared/button/button.component';
 import { IInstructionStep } from './IInstructionStep';
 
-
 @Component({
     templateUrl: 'app/instructions/instruction-steps.component.html',
-    directives: [ButtonComponent, ROUTER_DIRECTIVES],
-    styleUrls: ['app/instructions/instruction-steps.component.css'],
+    styleUrls: ['app/instructions/instruction-steps.component.css']
 })
 export class InstructionStepsComponent {
 

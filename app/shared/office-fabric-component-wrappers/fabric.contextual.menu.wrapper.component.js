@@ -18,36 +18,33 @@ var router_1 = require('@angular/router');
 // The WordDocumentService provides methods for manipulating the document.
 var word_document_service_1 = require('../../services/word-document/word.document.service');
 var FabricContextualMenuWrapperComponent = (function () {
-    //  @ViewChild('myDropdown') menu: ElementRef;
-    function FabricContextualMenuWrapperComponent(wordDocument, router) {
+    function FabricContextualMenuWrapperComponent(wordDocument, router, element) {
         this.wordDocument = wordDocument;
         this.router = router;
+        this.element = element;
     }
     FabricContextualMenuWrapperComponent.prototype.insertSampleContent = function () {
         this.wordDocument.replaceDocumentContent([
             "Office Add-ins",
             "An OAI runs in an Office application and can interact with data in a document or mail item. As one observer said:",
-            "\t\"These new OAIs are the cat's meow.\"",
+            "\t\"The new OAI model is the cat's meow.\"",
             "An OAI is a web app that you can host anywhere. It runs in an Office application. A manifest.xml file specifies where the web app is located and how it should appear.",
             "You can find an OAI sample or two (or many) in the OfficeDev organization on GitHub."
         ]);
+        this.closeMenu();
     };
-    // After the contexual menu has fully rendered, create a Fabric ContextualMenu object for it.
-    // (Future enhancement: Use Angular 2 ElementRef, instead of jQuery, to reference the elment.)
-    FabricContextualMenuWrapperComponent.prototype.ngAfterViewInit = function () {
-        // this.menu.nativeElement. .ContextualMenu();
-        if ($.fn.ContextualMenu) {
-            $('.ms-ContextualMenu').ContextualMenu();
-        }
+    FabricContextualMenuWrapperComponent.prototype.closeMenu = function () {
+        var menuElement = this.element.nativeElement // = this <of-contextual-menu>
+            .children[0]; // = <ul class="ms-ContextualMenu" ... >
+        menuElement.classList.remove("is-open");
     };
     FabricContextualMenuWrapperComponent = __decorate([
         core_1.Component({
             selector: 'of-contextual-menu',
             templateUrl: 'app/shared/office-fabric-component-wrappers/fabric.contextual.menu.wrapper.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES],
             styleUrls: ['app/shared/office-fabric-component-wrappers/fabric.contextual.menu.wrapper.component.css']
         }), 
-        __metadata('design:paramtypes', [word_document_service_1.WordDocumentService, router_1.Router])
+        __metadata('design:paramtypes', [word_document_service_1.WordDocumentService, router_1.Router, core_1.ElementRef])
     ], FabricContextualMenuWrapperComponent);
     return FabricContextualMenuWrapperComponent;
 }());
