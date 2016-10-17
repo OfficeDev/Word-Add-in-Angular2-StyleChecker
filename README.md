@@ -1,6 +1,6 @@
 # Word Style Checking Add-in Built on Angular 2.0
 
-Learn how to create an add-in that uses the `LocationRelation` and `compareLocationWith` APIs of the Word JavaScript APIs to perform a search and replace that skips some ranges based on their location relative to other ranges. The add-in is built on the Angular 2.0 RC.4 framework, and it also shows how to use the design samples from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code). 
+Learn how to create an add-in that uses the `LocationRelation` and `compareLocationWith` APIs of the Word JavaScript APIs to perform a search and replace that skips some ranges based on their location relative to other ranges. The add-in is built on the Angular 2.0 framework, and it also shows how to use the design samples from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code). 
 
 ## Table of Contents
 * [Change History](#change-history)
@@ -20,6 +20,10 @@ Learn how to create an add-in that uses the `LocationRelation` and `compareLocat
 August 1, 2016:
 
 * Initial version.
+
+September 15 - October 17th, 2016:
+
+* Minor updates.
 
 ## Prerequisites
 
@@ -91,7 +95,8 @@ Now you need to let Microsoft Word know where to find the add-in.
 5. In the **Replace** box enter "Office Add-in".
 6. The change should ***not*** be made in the paragraph that is a direct quotation, so enter the number **2** in the **Skip Paragraphs** box. This is the zero-based number of the paragraph.
 7. Select **Replace**. Every instance of "OAI" except the one in the skipped paragraph is changed.
-8. Experiment with other search and replace strings.
+8. Experiment with other sea
+9. h and replace strings.
 
  > Note: This sample version of the add-in accepts only one number in the **Skip Paragraphs** box. 
 
