@@ -35,7 +35,9 @@ function setRoutesArray(): any {
 const routes: Routes = setRoutesArray();
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes,
+                                  // Use hash location strategy in an Office Add-in
+                                  {useHash: true}) ],
   exports: [ RouterModule ]
 })
 

@@ -9,9 +9,6 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AppRoutingModule }     from './app-routing.module';
 
-// Use the hash location strategy in an Office Add-in
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-
 // Import all the custom components.
 import { AppComponent }         from './app.component';
 import { FindAndReplaceComponent } from './find-and-replace/find-and-replace.component';
@@ -50,9 +47,7 @@ import { SettingsStorageService } from './services/settings-storage/settings.sto
   ],
   providers: [ 
     WordDocumentService, 
-    SettingsStorageService, 
-    // Use hash location strategy in an Office Add-in
-    {provide: LocationStrategy, useClass: HashLocationStrategy} 
+    SettingsStorageService
     ],
   bootstrap: [ AppComponent ]
 })

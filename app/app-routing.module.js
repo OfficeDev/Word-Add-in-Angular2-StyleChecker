@@ -41,7 +41,9 @@ var AppRoutingModule = (function () {
     }
     AppRoutingModule = __decorate([
         core_1.NgModule({
-            imports: [router_1.RouterModule.forRoot(routes)],
+            imports: [router_1.RouterModule.forRoot(routes, 
+                // Use hash location strategy in an Office Add-in
+                { useHash: true })],
             exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])

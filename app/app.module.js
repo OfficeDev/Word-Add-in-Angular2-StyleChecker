@@ -16,8 +16,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_routing_module_1 = require('./app-routing.module');
-// Use the hash location strategy in an Office Add-in
-var common_1 = require('@angular/common');
 // Import all the custom components.
 var app_component_1 = require('./app.component');
 var find_and_replace_component_1 = require('./find-and-replace/find-and-replace.component');
@@ -56,9 +54,7 @@ var AppModule = (function () {
             ],
             providers: [
                 word_document_service_1.WordDocumentService,
-                settings_storage_service_1.SettingsStorageService,
-                // Use hash location strategy in an Office Add-in
-                { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }
+                settings_storage_service_1.SettingsStorageService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
