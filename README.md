@@ -1,6 +1,6 @@
-# Word Style Checking Add-in Built on Angular 2.0
+# Word Style Checking Add-in Built on Angular 2
 
-Learn how to create an add-in that uses the `LocationRelation` and `compareLocationWith` APIs of the Word JavaScript APIs to perform a search and replace that skips some ranges based on their location relative to other ranges. The add-in is built on the Angular 2.0 framework, and it also shows how to use the design samples from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code). 
+Learn how to create an add-in that uses the `LocationRelation` and `compareLocationWith` APIs of the Word JavaScript APIs to perform a search and replace that skips some ranges based on their location relative to other ranges. The add-in is built on the Angular 2 framework, and it also shows how to use the design samples from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code). 
 
 ## Table of Contents
 * [Change History](#change-history)
@@ -113,17 +113,23 @@ All of the code that uses the Office and Word JavaScript APIs is in the file wor
 
 The code first gets a collection of all the ranges that match the user's search term. It then gets a collection of all the paragraph ranges in the document. 
 
-```let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load();```
-```let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();```
+```js
+let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, 
+	{ matchCase: false, matchWholeWord: true })
+	.load();
+	let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();
+```
 
 After the collections are loaded with a call of `context.sync()`, the code creates an array of the paragraph ranges that the user excludes from the replacement. (Note that `excludedParagraphs` is a parameter passed to the method.)
 
-```let excludedRanges: Array<Word.Range> = [];```
-```excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));```
+```js
+let excludedRanges: Array<Word.Range> = [];
+	excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));
+```
 
 The code then loops through the iterables to determine which search results are inside excluded paragraphs and which are not. For each search result, this fact is recorded in a `IReplacementCandidate` object. The `compareLocationWith()` method returns "Inside" if the search result is inside the excluded paragraph. It returns "Equal" if the search result is a paragraph by itself and has been excluded. 
 
-```
+```js
 for (let i = 0; i < foundItems.items.length; i++) {
     for (let j = 0; j < excludedRanges.length; j++) {
         replacementCandidates.push({
@@ -133,9 +139,10 @@ for (let i = 0; i < foundItems.items.length; i++) {
     }
 }
 ```
+
 The replacement candidate objects are loaded with a call to `context.sync()` and then the code iterates through them, replacing the search string with the replace string only in the paragraphs which are not in an excluded paragraph.
 
-```
+```js
 replacementCandidates.forEach(function (item) {
     switch (item.locationRelation.value) {
         case "Inside":
@@ -146,9 +153,10 @@ replacementCandidates.forEach(function (item) {
     }
 });
 ```
-See the `replaceDocumentContent` method of the same file to see how the Word `insertText` and `nsertParagraph` methods are used to insert sample content into the document.
 
-See the rest of the code files to see how the design patterns from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code) have been integrated into the Angular 2.0 framework.
+See the `replaceDocumentContent` method of the same file to see how the Word `insertText` and `insertParagraph` methods are used to insert sample content into the document.
+
+See the rest of the code files to see how the design patterns from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code) have been integrated into the Angular 2 framework.
 
 ## Questions and comments
 
