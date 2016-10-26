@@ -117,14 +117,14 @@ The code first gets a collection of all the ranges that match the user's search 
 let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, 
 	{ matchCase: false, matchWholeWord: true })
 	.load();
-	let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();
+let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();
 ```
 
 After the collections are loaded with a call of `context.sync()`, the code creates an array of the paragraph ranges that the user excludes from the replacement. (Note that `excludedParagraphs` is a parameter passed to the method.)
 
 ```js
 let excludedRanges: Array<Word.Range> = [];
-	excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));
+excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));
 ```
 
 The code then loops through the iterables to determine which search results are inside excluded paragraphs and which are not. For each search result, this fact is recorded in a `IReplacementCandidate` object. The `compareLocationWith()` method returns "Inside" if the search result is inside the excluded paragraph. It returns "Equal" if the search result is a paragraph by itself and has been excluded. 
