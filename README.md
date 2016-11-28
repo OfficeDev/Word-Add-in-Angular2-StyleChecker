@@ -1,6 +1,6 @@
-# Word Style Checking Add-in Built on Angular 2
+# Word Style Checking Add-in Built on Angular 2.0
 
-Learn how to create an add-in that uses the `LocationRelation` and `compareLocationWith` APIs of the Word JavaScript APIs to perform a search and replace that skips some ranges based on their location relative to other ranges. The add-in is built on the Angular 2 framework, and it also shows how to use the design samples from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code). 
+Learn how to create an add-in that uses the `LocationRelation` and `compareLocationWith` APIs of the Word JavaScript APIs to perform a search and replace that skips some ranges based on their location relative to other ranges. The add-in is built on the Angular 2.0 framework, and it also shows how to use the design samples from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code). 
 
 ## Table of Contents
 * [Change History](#change-history)
@@ -93,12 +93,11 @@ Now you need to let Microsoft Word know where to find the add-in.
 3. Select **Insert sample content**. Click the button again to close the menu. The document now has unformatted text about Office Add-ins, including a fictional quotation. The writer has used an "OAI" to abbreviate "Office Add-in" and so does the anonymous quotation.
 4. In the **Find** box enter "OAI". 
 5. In the **Replace** box enter "Office Add-in".
-6. The change should ***not*** be made in the paragraph that is a direct quotation, so enter the number **2** in the **Skip Paragraphs** box. This is the zero-based number of the paragraph.
+6. The change should ***not*** be made in the paragraph that is a direct quotation, so enter the number **2** in the **Skip Paragraph Number** box. This is the zero-based number of the paragraph.
 7. Select **Replace**. Every instance of "OAI" except the one in the skipped paragraph is changed.
-8. Experiment with other sea
-9. h and replace strings.
+8. Experiment with other search and replace strings.
 
- > Note: This sample version of the add-in accepts only one number in the **Skip Paragraphs** box. 
+ > Note: This sample add-in accepts only one number in the **Skip Paragraph Number** box. A production add-in would allow multiple paragraphs to be skipped and would have additional ways of designating which paragraphs should be skipped; such as skipping based on paragraph style.
 
 ## Change the settings of the add-in
 
@@ -113,23 +112,17 @@ All of the code that uses the Office and Word JavaScript APIs is in the file wor
 
 The code first gets a collection of all the ranges that match the user's search term. It then gets a collection of all the paragraph ranges in the document. 
 
-```js
-let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, 
-	{ matchCase: false, matchWholeWord: true })
-	.load();
-let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();
-```
+```let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load();```
+```let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();```
 
-After the collections are loaded with a call of `context.sync()`, the code creates an array of the paragraph ranges that the user excludes from the replacement. (Note that `excludedParagraphs` is a parameter passed to the method.)
+After the collections are loaded with a call of `context.sync()`, the code creates an array of the paragraph ranges that the user excludes from the replacement. (Note that `excludedParagraph` is a parameter passed to the method.)
 
-```js
-let excludedRanges: Array<Word.Range> = [];
-excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));
-```
+```let excludedRanges: Array<Word.Range> = [];```
+```excludedRanges.push(paras.items[excludedParagraph].getRange('Whole'));```
 
 The code then loops through the iterables to determine which search results are inside excluded paragraphs and which are not. For each search result, this fact is recorded in a `IReplacementCandidate` object. The `compareLocationWith()` method returns "Inside" if the search result is inside the excluded paragraph. It returns "Equal" if the search result is a paragraph by itself and has been excluded. 
 
-```js
+```
 for (let i = 0; i < foundItems.items.length; i++) {
     for (let j = 0; j < excludedRanges.length; j++) {
         replacementCandidates.push({
@@ -139,10 +132,9 @@ for (let i = 0; i < foundItems.items.length; i++) {
     }
 }
 ```
-
 The replacement candidate objects are loaded with a call to `context.sync()` and then the code iterates through them, replacing the search string with the replace string only in the paragraphs which are not in an excluded paragraph.
 
-```js
+```
 replacementCandidates.forEach(function (item) {
     switch (item.locationRelation.value) {
         case "Inside":
@@ -153,10 +145,9 @@ replacementCandidates.forEach(function (item) {
     }
 });
 ```
+See the `replaceDocumentContent` method of the same file to see how the Word `insertText` and `nsertParagraph` methods are used to insert sample content into the document.
 
-See the `replaceDocumentContent` method of the same file to see how the Word `insertText` and `insertParagraph` methods are used to insert sample content into the document.
-
-See the rest of the code files to see how the design patterns from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code) have been integrated into the Angular 2 framework.
+See the rest of the code files to see how the design patterns from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code) have been integrated into the Angular 2.0 framework.
 
 ## Questions and comments
 

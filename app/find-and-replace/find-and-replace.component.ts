@@ -28,7 +28,7 @@ export class FindAndReplaceComponent {
 
     private searchString: string;
     private replaceString: string;
-    private excludedParagraphs: string;
+    private excludedParagraph: number;
     private subscription: any;
 
     constructor(private wordDocument: WordDocumentService,
@@ -46,11 +46,11 @@ export class FindAndReplaceComponent {
     }
 
     // Handle the event of a user entering a number in the box for excluded paragraphs.
-    onParagraphNumeralEntered(message: string): void {
-        this.excludedParagraphs = message;
+    onParagraphNumeralEntered(message: number): void {
+        this.excludedParagraph = message;
     }
 
     replace(): void {
-        this.wordDocument.replaceFoundStringsWithExceptions(this.searchString, this.replaceString, this.excludedParagraphs);
+        this.wordDocument.replaceFoundStringsWithExceptions(this.searchString, this.replaceString, this.excludedParagraph);
     }
 }

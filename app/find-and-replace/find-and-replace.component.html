@@ -14,8 +14,8 @@
     <of-textfield [innerlabel]="'Enter search string'" [id]="'searchString'" (textEntered)='onSearchTextEntered($event)'></of-textfield>
     <label class="ms-Label">Replace With</label>
     <of-textfield [innerlabel]="'Enter replace string'" [id]="'replaceString'" (textEntered)='onReplaceTextEntered($event)'></of-textfield>
-    <label class="ms-Label" >Skip Paragraphs</label>
-    <of-textfield [innerlabel]="'Enter paragraph numbers'" [id]="'excludedParagraphs'" (textEntered)='onParagraphNumeralEntered($event)'></of-textfield>
+    <label class="ms-Label" >Skip Paragraph Number</label>
+    <of-textfield [innerlabel]="'Enter a paragraph number'" [id]="'excludedParagraph'" (textEntered)='onParagraphNumeralEntered($event)'></of-textfield>
 </div>
 <div class="ms-navigation__content">
     <sc-button [buttonlabel]="'Replace'" (click)='replace()'></sc-button>

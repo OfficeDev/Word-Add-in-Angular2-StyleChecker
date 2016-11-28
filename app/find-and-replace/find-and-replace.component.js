@@ -35,10 +35,10 @@ var FindAndReplaceComponent = (function () {
     };
     // Handle the event of a user entering a number in the box for excluded paragraphs.
     FindAndReplaceComponent.prototype.onParagraphNumeralEntered = function (message) {
-        this.excludedParagraphs = message;
+        this.excludedParagraph = message;
     };
     FindAndReplaceComponent.prototype.replace = function () {
-        this.wordDocument.replaceFoundStringsWithExceptions(this.searchString, this.replaceString, this.excludedParagraphs);
+        this.wordDocument.replaceFoundStringsWithExceptions(this.searchString, this.replaceString, this.excludedParagraph);
     };
     FindAndReplaceComponent = __decorate([
         core_1.Component({

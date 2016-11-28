@@ -16,14 +16,16 @@ export class WordDocumentService {
     /// <summary>
     /// Performs a search and replace, but makes no changes to text in the excluded paragraphs.
     /// </summary>
-    replaceFoundStringsWithExceptions(searchString: string, replaceString: string, excludedParagraphs: string) {
+    replaceFoundStringsWithExceptions(searchString: string, replaceString: string, excludedParagraph: number) {
 
         // Run a batch operation against the Word object model.
         Word.run(function (context) {
 
             // Find and load all ranges that match the search string, and then all paragraphs in the document.
-            let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load();
-            let paras : Word.ParagraphCollection = context.document.body.paragraphs.load();
+            // Only the 'items' property of each is needed, no properties on the items are needed, so add any string 
+            // after the 'items/' part of the load parameter.
+            let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load('items/NoPropertiesNeeded');
+            let paras : Word.ParagraphCollection = context.document.body.paragraphs.load('items/NoPropertiesNeeded');
 
             // Synchronize the document state by executing the queued commands, and return a promise to indicate task completion.
             return context.sync()
@@ -32,7 +34,7 @@ export class WordDocumentService {
 
                 // Create an array of paragraphs that have been excluded.
                 let excludedRanges: Array<Word.Range> = [];
-                excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));
+                excludedRanges.push(paras.items[excludedParagraph].getRange('Whole'));
 
                 let replacementCandidates : Array<IReplacementCandidate> = [];
 
@@ -54,6 +56,7 @@ export class WordDocumentService {
                     // Replace instances of the search string with the replace string only if they are
                     // not inside of (or identical to) an excluded range.
                     replacementCandidates.forEach(function (item) {
+
                         switch (item.locationRelation.value) {
                             case "Inside":
                             case "Equal":
