@@ -1,0 +1,20 @@
+### YamlMime:Sample
+sample:
+- name: Word Style Checking Add-in Built on Angular 2.0
+  path: ''
+  description: Learn how to create an add-in that uses the LocationRelation and compareLocationWith APIs of the Word JavaScript APIs to perform a search and replace that skips some ranges based on their location relative to other ranges.
+  readme: ''
+  generateZip: FALSE
+  isLive: TRUE
+  technologies:
+  - Office Add-in
+  - Angular 2.0
+  azureDeploy: ''
+  author: rick-kirkham
+  platforms: []
+  languages:
+  - JavaScript
+  extensions:
+    products:
+    - Word
+    scenarios: []
