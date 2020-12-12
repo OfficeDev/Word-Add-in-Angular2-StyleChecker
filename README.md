@@ -38,6 +38,10 @@ September 15 - October 17th, 2016:
 
 * Minor updates.
 
+December 11th, 2020:
+
+* Changed system for creating and installing the SSL certificates for HTTPS.
+
 ## Prerequisites
 
 * Word 2016 for Windows, build 16.0.6727.1000 or later.
@@ -46,19 +50,26 @@ September 15 - October 17th, 2016:
 
 ## Configure the project
 
-In the folder where you want to put the project, run the following commands in the git bash shell:
+1. In the folder where you want to put the project open a git bash shell and take these steps:
 
-1. ```git clone {URL of this repo}``` to clone this repo to your local machine.
-2. ```npm install``` to install all of the dependencies itemized in the package.json file.
-3. ```bash gen-cert.sh``` to create the certificate needed to run this sample. 
+    1. Run ```git clone {URL of this repo}``` to clone this repo to your local machine. Your project will be created in a subfolder.
+    2. In the bash shell, navigate to the root of the new project.
+    3. Run ```npm install``` to install all of the dependencies itemized in the package.json file.
 
-Set the certificate to be a trusted root authority. On a Windows machine, these are the steps:
+2. Open a system Command Prompt *as an administrator* and take these steps:
 
-1. In the repo folder on your local computer, double-click ca.crt, and select **Install Certificate**. 
-2. Select **Local Machine** and select **Next** to continue. 
-3. Select **Place all certificates in the following store** and then select **Browse**.
-4. Select **Trusted Root Certification Authorities** and then select **OK**. 
-5. Select **Next** and then **Finish**. 
+    1. Navigate to the root of the project.
+    2. Run the command: ```npx office-addin-dev-certs install --machine```.
+
+       If you get the following prompt, click Yes.
+
+       ![Screenshot of a dialog that warns about the SSL certificate and asks user to accept or deny installation of it.](./Readmegit statImages/CertificateWarningPrompt.png)
+
+    3. Leave the Command Prompt open.
+
+3. In your code editor, open the `bs-config.json` file in the root of the project.
+4. Replace the string "YOUR-USER-NAME-ON-COMPUTER" in both places with your username on the computer. 
+5. Save and close the file.
 
 ## Deploy the add-in
 
@@ -76,17 +87,8 @@ Now you need to let Microsoft Word know where to find the add-in.
 
 ## Run the project
 
-1. Open a node command window in the folder of the project and run ```npm start``` to start the web service. Leave the command window open.
-2. Open Internet Explorer or Edge and enter ```https://localhost:3000``` in the address box. If you do not receive any warnings about the certificate, close the browser and continue with the section below titled **Start the add-in**. If you do receive a warning that the certificate is not trusted, continue with the following steps:
-3. The browser gives you a link to open the page despite the warning. Open it.
-4. After the page opens, there will be a red certificate error in the address bar. Double click the error.
-5. Select **View Certificate**.
-5. Select **Install Certificate**.
-4. Select **Local Machine** and select **Next** to continue. 
-3. Select **Place all certificates in the following store** and then select **Browse**.
-4. Select **Trusted Root Certification Authorities** and then select **OK**. 
-5. Select **Next** and then **Finish**.
-6. Close the browser.
+In the Command Prompt, run ```npm start``` to start the web service. (The home page of the project may open in the default browser. Just close it. Add-ins can only run correctly in the context of an Office application.)
+
 
 ## Start the add-in
 
@@ -110,7 +112,7 @@ Now you need to let Microsoft Word know where to find the add-in.
 7. Select **Replace**. Every instance of "OAI" except the one in the skipped paragraph is changed.
 8. Experiment with other search and replace strings.
 
- > Note: This sample add-in accepts only one number in the **Skip Paragraph Number** box. A production add-in would allow multiple paragraphs to be skipped and would have additional ways of designating which paragraphs should be skipped; such as skipping based on paragraph style.
+ > Note: This sample add-in accepts only one number in the **Skip Paragraph Number** box and you must have some number in the box. A production add-in would allow no paragraphs to be skipped or multiple paragraphs to be skipped and would have additional ways of designating which paragraphs should be skipped; such as skipping based on paragraph style.
 
 ## Change the settings of the add-in
 
@@ -175,7 +177,7 @@ Questions about Microsoft Office 365 development in general should be posted to 
 * More Office Add-in samples at [OfficeDev on Github](https://github.com/officedev)
 
 ## Copyright
-Copyright (c) 2016 Microsoft Corporation. All rights reserved.
+Copyright (c) 2016 and 2020 Microsoft Corporation. All rights reserved.
 
 
 

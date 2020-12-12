@@ -1,3 +1,6 @@
 {
-    "https": true
+    "https": {
+        "key": "c:/users/YOUR-USER-NAME-ON-COMPUTER/.office-addin-dev-certs/localhost.key",
+        "cert": "c:/users/YOUR-USER-NAME-ON-COMPUTER/.office-addin-dev-certs/localhost.crt"
+    }
 }
