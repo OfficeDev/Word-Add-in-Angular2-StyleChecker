@@ -63,7 +63,7 @@ December 11th, 2020:
 
        If you get the following prompt, click Yes.
 
-       ![Screenshot of a dialog that warns about the SSL certificate and asks user to accept or deny installation of it.](./Readmegit statImages/CertificateWarningPrompt.png)
+       ![Screenshot of a dialog that warns about the SSL certificate and asks user to accept or deny installation of it.](./ReadmeImages/CertificateWarningPrompt.png)
 
     3. Leave the Command Prompt open.
 
