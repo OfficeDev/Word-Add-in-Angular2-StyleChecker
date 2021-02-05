@@ -4,8 +4,6 @@
   This file defines the root component of the application. 
 */
 
-/// <reference path="../typings/index.d.ts" />
-
 import {Component} from '@angular/core';
 
 @Component({

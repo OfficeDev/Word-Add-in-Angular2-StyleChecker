@@ -1,23 +1,25 @@
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information.
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TextField = void 0;
 // Modification to default file: Remove the wrapping namespace when you use the 
 // file in an Angular 2 application. It is not needed and namespaces don't play 
 // well with modules in Angular 2.
 //namespace fabric {
 var TextFieldConsts;
 (function (TextFieldConsts) {
+    var Type;
     (function (Type) {
         Type[Type["Placeholder"] = 0] = "Placeholder";
         Type[Type["Underlined"] = 1] = "Underlined";
-    })(TextFieldConsts.Type || (TextFieldConsts.Type = {}));
-    var Type = TextFieldConsts.Type;
+    })(Type = TextFieldConsts.Type || (TextFieldConsts.Type = {}));
 })(TextFieldConsts || (TextFieldConsts = {}));
 /**
  * Text Field Plugin
  *
  * Adds basic demonstration functionality to .ms-TextField components.
  */
-var TextField = (function () {
+var TextField = /** @class */ (function () {
     /**
      *
      * @param {HTMLDivElement} container - the target container for an instance of TextField
@@ -73,5 +75,4 @@ var TextField = (function () {
     return TextField;
 }());
 exports.TextField = TextField;
-//}
 //# sourceMappingURL=TextField.js.map

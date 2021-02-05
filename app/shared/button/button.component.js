@@ -1,5 +1,5 @@
-// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo.
 "use strict";
+// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo.
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,24 +9,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ButtonComponent = void 0;
 /*
   This file defines a Fabic-styled button.
 */
-var core_1 = require('@angular/core');
-var ButtonComponent = (function () {
+var core_1 = require("@angular/core");
+var ButtonComponent = /** @class */ (function () {
     function ButtonComponent() {
     }
     __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
+        core_1.Input(),
+        __metadata("design:type", String)
     ], ButtonComponent.prototype, "buttonlabel", void 0);
     ButtonComponent = __decorate([
         core_1.Component({
             selector: 'sc-button',
             templateUrl: 'app/shared/button/button.component.html',
             styleUrls: ['app/shared/button/button.component.css']
-        }), 
-        __metadata('design:paramtypes', [])
+        })
     ], ButtonComponent);
     return ButtonComponent;
 }());
