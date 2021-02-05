@@ -8,9 +8,7 @@
         "tsc": "tsc",
         "tsc:w": "tsc -w",
         "lint": "tslint ./app/**/*.ts -t verbose",
-        "lite": "lite-server -c bs-config.json",
-        "typings": "typings",
-        "postinstall": "typings install"
+        "lite": "lite-server -c bs-config.json"
     },
     "license": "MIT",
     "dependencies": {
@@ -33,9 +31,8 @@
         "concurrently": "^3.0.0",
         "lite-server": "^2.2.2",
         "office-addin-dev-certs": "^1.5.5",
-        "tslint": "^3.7.4",
-        "typescript": "^2.0.3",
-        "typings": "^1.4.0"
+        "tslint": "^5.20.1",
+        "typescript": "^2.0.3"
     },
     "repository": {}
 }
