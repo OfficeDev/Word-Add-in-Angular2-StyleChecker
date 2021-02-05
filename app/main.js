@@ -1,10 +1,11 @@
-// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo.
 "use strict";
+// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo.
+Object.defineProperty(exports, "__esModule", { value: true });
 /*
    This file bootstraps the root module: AppModule.
 */
-var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var app_module_1 = require('./app.module');
+var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
+var app_module_1 = require("./app.module");
 function launch() {
     var platform = platform_browser_dynamic_1.platformBrowserDynamic();
     platform.bootstrapModule(app_module_1.AppModule);

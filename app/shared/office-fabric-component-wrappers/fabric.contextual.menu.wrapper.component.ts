@@ -4,8 +4,6 @@
   The file defines an Angular 2 component to wrap the Fabric ContextualMenu component.
 */
 
-///<reference path="../../../typings/index.d.ts"/>
-
 import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 

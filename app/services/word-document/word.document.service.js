@@ -1,37 +1,37 @@
-// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo.
 "use strict";
+// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo.
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WordDocumentService = void 0;
 /*
   This file defines a service for manipulating the Word document.
 */
-/// <reference path="../../../typings/index.d.ts" />
-var core_1 = require('@angular/core');
-var WordDocumentService = (function () {
+var core_1 = require("@angular/core");
+var WordDocumentService = /** @class */ (function () {
     function WordDocumentService() {
     }
     /// <summary>
     /// Performs a search and replace, but makes no changes to text in the excluded paragraphs.
     /// </summary>
-    WordDocumentService.prototype.replaceFoundStringsWithExceptions = function (searchString, replaceString, excludedParagraphs) {
+    WordDocumentService.prototype.replaceFoundStringsWithExceptions = function (searchString, replaceString, excludedParagraph) {
         // Run a batch operation against the Word object model.
         Word.run(function (context) {
             // Find and load all ranges that match the search string, and then all paragraphs in the document.
-            var foundItems = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load();
-            var paras = context.document.body.paragraphs.load();
+            // Only the 'items' property of each is needed, no properties on the items are needed, so add any string 
+            // after the 'items/' part of the load parameter.
+            var foundItems = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load('items/NoPropertiesNeeded');
+            var paras = context.document.body.paragraphs.load('items/NoPropertiesNeeded');
             // Synchronize the document state by executing the queued commands, and return a promise to indicate task completion.
             return context.sync()
                 .then(function () {
                 // Create an array of paragraphs that have been excluded.
                 var excludedRanges = [];
-                excludedRanges.push(paras.items[excludedParagraphs].getRange('Whole'));
+                excludedRanges.push(paras.items[excludedParagraph].getRange('Whole'));
                 var replacementCandidates = [];
                 // For each instance of the search string, record whether or not it is in an
                 // excluded paragraph.
@@ -76,7 +76,7 @@ var WordDocumentService = (function () {
             // Use insertText for the first to prevent a line break from being inserted 
             // at the top of the document.
             body.insertText(paragraphs[0], "End");
-            // Use insertParagrpah for all the others.
+            // Use insertParagraph for all the others.
             for (var i = 1; i < paragraphs.length; i++) {
                 body.insertParagraph(paragraphs[i], 'End');
             }
@@ -92,8 +92,7 @@ var WordDocumentService = (function () {
         }
     };
     WordDocumentService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        core_1.Injectable()
     ], WordDocumentService);
     return WordDocumentService;
 }());

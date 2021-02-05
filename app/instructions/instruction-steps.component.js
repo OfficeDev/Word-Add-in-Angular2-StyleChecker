@@ -1,5 +1,5 @@
-// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
 "use strict";
+// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,15 +9,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.InstructionStepsComponent = void 0;
 /*
   This file defines an instructions component for a task pane page. It is based on
   the instruction-step sample, created by the Modern Assistance Experience Developer
   Docs team. Along with other samples, it is in the Office-Add-in-UX-Design-Patterns-Code
   repo:  https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code
 */
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var InstructionStepsComponent = (function () {
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var InstructionStepsComponent = /** @class */ (function () {
     function InstructionStepsComponent(router) {
         this.router = router;
         this.title = "WELCOME";
@@ -32,8 +34,8 @@ var InstructionStepsComponent = (function () {
         core_1.Component({
             templateUrl: 'app/instructions/instruction-steps.component.html',
             styleUrls: ['app/instructions/instruction-steps.component.css']
-        }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        }),
+        __metadata("design:paramtypes", [router_1.Router])
     ], InstructionStepsComponent);
     return InstructionStepsComponent;
 }());

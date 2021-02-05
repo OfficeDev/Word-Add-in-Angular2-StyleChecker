@@ -4,8 +4,6 @@
   This file defines a service for manipulating the Word document. 
 */
 
-/// <reference path="../../../typings/index.d.ts" />
-
 import { Injectable } from '@angular/core';
 import { IReplacementCandidate } from './IReplacementCandidate';
 
@@ -24,7 +22,7 @@ export class WordDocumentService {
             // Find and load all ranges that match the search string, and then all paragraphs in the document.
             // Only the 'items' property of each is needed, no properties on the items are needed, so add any string 
             // after the 'items/' part of the load parameter.
-            let foundItems: Word.SearchResultCollection = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load('items/NoPropertiesNeeded');
+            let foundItems: Word.RangeCollection = context.document.body.search(searchString, { matchCase: false, matchWholeWord: true }).load('items/NoPropertiesNeeded');
             let paras : Word.ParagraphCollection = context.document.body.paragraphs.load('items/NoPropertiesNeeded');
 
             // Synchronize the document state by executing the queued commands, and return a promise to indicate task completion.
@@ -91,7 +89,7 @@ export class WordDocumentService {
             // at the top of the document.
             body.insertText(paragraphs[0], "End");
 
-            // Use insertParagrpah for all the others.
+            // Use insertParagraph for all the others.
             for (let i=1; i < paragraphs.length; i++) {
                  body.insertParagraph(paragraphs[i], 'End');
             }

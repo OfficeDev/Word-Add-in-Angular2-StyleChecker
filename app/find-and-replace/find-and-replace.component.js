@@ -1,5 +1,5 @@
-// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
 "use strict";
+// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,17 +9,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FindAndReplaceComponent = void 0;
 /*
   This file defines a component that enables a search-and-replace functionality for
   the Word document.
 */
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 // The WordDocumentService provides methods for manipulating the document.
-var word_document_service_1 = require('../services/word-document/word.document.service');
+var word_document_service_1 = require("../services/word-document/word.document.service");
 // The SettingsStorageService provides CRUD operations on application settings..
-var settings_storage_service_1 = require('../services/settings-storage/settings.storage.service');
-var FindAndReplaceComponent = (function () {
+var settings_storage_service_1 = require("../services/settings-storage/settings.storage.service");
+var FindAndReplaceComponent = /** @class */ (function () {
     function FindAndReplaceComponent(wordDocument, settingsStorage, router) {
         this.wordDocument = wordDocument;
         this.settingsStorage = settingsStorage;
@@ -44,8 +46,10 @@ var FindAndReplaceComponent = (function () {
         core_1.Component({
             templateUrl: 'app/find-and-replace/find-and-replace.component.html',
             styleUrls: ['app/find-and-replace/find-and-replace.component.css'],
-        }), 
-        __metadata('design:paramtypes', [word_document_service_1.WordDocumentService, settings_storage_service_1.SettingsStorageService, router_1.Router])
+        }),
+        __metadata("design:paramtypes", [word_document_service_1.WordDocumentService,
+            settings_storage_service_1.SettingsStorageService,
+            router_1.Router])
     ], FindAndReplaceComponent);
     return FindAndReplaceComponent;
 }());

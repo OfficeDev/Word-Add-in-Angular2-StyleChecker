@@ -4,8 +4,6 @@
   This file defines a service that provides CRUD operations on application settings. 
 */
 
-/// <reference path="../../../typings/index.d.ts" />
-
 import { Injectable } from '@angular/core';
 
 
