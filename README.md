@@ -10,6 +10,7 @@ extensions:
   technologies:
   - Add-ins
   createdDate: 8/9/2016 11:08:27 AM
+description: "Learn how to create an add-in that uses the `LocationRelation` and `compareLocationWith` APIs of the Word JavaScript APIs to perform a search and replace that skips some ranges based on their location relative to other ranges."
 ---
 # Word Style Checking Add-in Built on Angular 2.0
 
