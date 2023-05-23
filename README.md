@@ -14,7 +14,9 @@ description: "Learn how to create an add-in that uses the `LocationRelation` and
 ---
 # Word Style Checking Add-in Built on Angular 2.0
 
-> **Important Note**: This sample uses the latest lite-server (version 2.6.1) to host the add-in. This server package has a dependency on a version of the xmlhttprequest-ssl package that has a security vulnerability. This vulnerability does not pose a problem for running and modifying this sample on your development computer, but do not use lite-server 2.6.1 for a production add-in.
+> **Important Note 1**: This repo is being archived because we do not have the staff to update it or to support Angular. It can still be used for the educational purposes described below.
+
+> **Important Note 2**: This sample has several security alerts. These vulnerabilities do not pose a problem for running and modifying this sample on your development computer, but do not use the vulnerable libraries in a production add-in. For example, it uses the latest lite-server (version 2.6.1) to host the add-in. This server package has a dependency on a version of the xmlhttprequest-ssl package that has a security vulnerability. 
 
 Learn how to create an add-in that uses the `LocationRelation` and `compareLocationWith` APIs of the Word JavaScript APIs to perform a search and replace that skips some ranges based on their location relative to other ranges. The add-in is built on the Angular 2.0 framework, and it also shows how to use the design samples from [Office Add-in UX Design Patterns Code](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code). 
 
@@ -44,6 +46,10 @@ September 15 - October 17th, 2016:
 December 11th, 2020:
 
 * Changed system for creating and installing the SSL certificates for HTTPS.
+
+May 23rd, 2023:
+
+* Archiving.
 
 ## Prerequisites
 
